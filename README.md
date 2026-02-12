@@ -1,81 +1,71 @@
-Library Assistant
+📚 Library Assistant
 
-A Python-based Library Assistant application that helps users manage library-related queries, search for books, check availability, and get library information.
+Library Assistant is a Python-based application designed to simplify library management. It helps users quickly search for books, check availability, and get library information through an intelligent and user-friendly assistant.
 
-Features
+🚀 Features
 
-Book Search: Search for books in the library database by title
+Book Search – Quickly find books in the library database by title
 
-Availability Check: Check the availability of books (for registered members only)
+Availability Check – Check how many copies are available (for registered members)
 
-Library Timings: Get information about library operating hours
+Library Timings – Get library opening hours
 
-Member Support: Support for both registered members and guest users
+Member Support – Features for both guests and registered members
 
-Smart Guardrails: Detects and handles non-library related queries
+Smart Guardrails – Handles non-library-related queries gracefully
 
-AI-Powered Responses: Provides intelligent responses
+AI-Powered Responses – Provides intelligent and helpful answers
 
-Fallback Mode: Rule-based fallback when AI integration is not configured
+Fallback Mode – Rule-based responses if AI integration isn’t available
 
-Prerequisites
+🛠 Installation
 
-Python 3.7+
-
-Installation
-
-Clone the repository:
+Clone the repository
 
 git clone <repository-url>
 cd library
 
 
-Install dependencies:
+Install dependencies
 
 pip install -r requirements.txt
 
 
-(Optional) Set up environment variables if required for AI integration:
+(Optional) Setup environment variables
 
 Create a .env file in the project root
 
-Project Structure
-library/
-├── main.py                # Entry point with test queries
-├── assistant.py           # Main assistant logic
-├── tools.py               # Function tools (search_book, check_availability, etc.)
-├── database.py            # Book database and library data
-├── models.py              # Data models (UserContext)
-├── requirements.txt       # Python dependencies
-├── .env                   # Environment variables (optional)
-└── README.md              # This file
+Use it if you have AI integration settings
 
-Usage
-Run the Library Assistant
+📂 Project Structure
+library/
+├── main.py           # Entry point to run test queries
+├── assistant.py      # Core assistant logic
+├── tools.py          # Functions like search_book, check_availability
+├── database.py       # Pre-populated book database
+├── models.py         # Data models (UserContext)
+├── requirements.txt  # Python dependencies
+├── .env              # Environment variables (optional)
+└── README.md         # Project documentation
+
+💡 Usage
+
+Run the Library Assistant:
+
 python main.py
 
-Available Commands
 
-The assistant can help with:
+Example Queries:
 
-Search for books: "Is 'The Great Gatsby' available?"
+"Is 'The Great Gatsby' available?"
 
-Check availability: "Tell me about 'To Kill a Mockingbird'"
+"Tell me about '1984'"
 
-Library timings: "What are the library hours?"
+"What are the library hours?"
 
-Membership queries: "How do I become a member?"
+"How do I become a member?"
 
-Dependencies
-
-python-dotenv - Environment variable management
-
-pydantic - Data validation and settings management
-
-Book Database
-
-The application includes a pre-populated book database with the following titles:
-
+📚 Book Database (Sample)
 Book Title	Author	Available Copies
 The Great Gatsby	F. Scott Fitzgerald	3
 To Kill a Mockingbird	Harper Lee	2
@@ -85,41 +75,46 @@ The Catcher in the Rye	J.D. Salinger	1
 One Hundred Years of Solitude	Gabriel García Márquez	2
 The Hobbit	J.R.R. Tolkien	3
 Fahrenheit 451	Ray Bradbury	4
-Library Timings
+🕒 Library Timings
 
-Monday to Friday: 9 AM to 8 PM
+Monday to Friday – 9 AM to 8 PM
 
-Saturday: 10 AM to 6 PM
+Saturday – 10 AM to 6 PM
 
-Sunday: Closed
+Sunday – Closed
 
-How It Works
+⚙ How It Works
 
-User Input: The user provides a query about library services
+User Input – User provides a query about library services
 
-Query Analysis: The system checks if the query is library-related
+Query Analysis – System identifies if query is library-related
 
-Tool Selection: Appropriate tools are selected based on the query
+Tool Selection – Appropriate tool is selected (search, check availability, etc.)
 
-Response Generation:
+Response Generation –
 
-With AI integration: Provides intelligent responses
+AI Integration: Provides intelligent responses
 
-Without AI integration: Falls back to rule-based responses
+Fallback Mode: Rule-based answers if AI is unavailable
 
-Output: Returns helpful information to the user
+Output – Returns helpful information to the user
 
-Membership
+👥 Membership
 
-Guest Users: Can search for books and get library timings
+Guest Users – Can search for books and view library timings
 
-Registered Members: Can access additional features like availability checks
+Registered Members – Access advanced features like availability checks
 
-License
+📦 Dependencies
+
+python-dotenv – Environment variable management
+
+pydantic – Data validation and settings management
+
+📜 License
 
 MIT License
 
-Contributing
+🤝 Contributing
 
-Feel free to submit issues and enhancement requests!
-
+Contributions, issues, and feature requests are welcome! Feel free to fork the repository and submit pull requests.
