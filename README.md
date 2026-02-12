@@ -1,84 +1,93 @@
-# Library Assistant
+# 📚 Library Assistant
 
-A Python-based Library Assistant application powered by Google Gemini API that helps users manage library-related queries, search for books, check availability, and get library information.
+A smart, AI-powered library management assistant that helps users search for books, check availability, and get instant answers to library-related questions. Built with Python and designed for seamless library operations.
 
-## Features
+![Library Assistant](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-- **Book Search**: Search for books in the library database by title
-- **Availability Check**: Check the availability of books (for registered members only)
-- **Library Timings**: Get information about library operating hours
-- **Member Support**: Support for both registered members and guest users
-- **Smart Guardrails**: Detects and handles non-library related queries
-- **AI-Powered Responses**: Uses Google Gemini API for intelligent responses
-- **Fallback Mode**: Rule-based fallback when API key is not configured
+---
 
-## Prerequisites
+## ✨ Features
 
-- Python 3.7+
-- Google Gemini API key
+| Feature | Description |
+|---------|-------------|
+| 🔍 **Smart Book Search** | Instantly find books by title in the library database |
+| 📊 **Availability Tracking** | Real-time check of available copies for registered members |
+| 🕐 **Library Hours** | Get instant information about operating hours |
+| 👤 **Multi-User Support** | Separate experiences for guests and registered members |
+| 🛡️ **Smart Guardrails** | Gracefully handles non-library queries |
+| 🤖 **Intelligent Responses** | Context-aware answers powered by AI |
+| 🔄 **Fallback System** | Reliable rule-based responses when AI is unavailable |
 
-## Installation
+---
 
-1. Clone the repository:
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.8 or higher
+- pip package manager
+
+### Installation
+
 ```bash
+# Clone the repository
 git clone <repository-url>
 cd library
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-3. Set up environment variables:
-   - Create a `.env` file in the project root
-   - Add your Gemini API key:
-   ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
+### Configuration (Optional)
 
-## Project Structure
+Create a `.env` file in the project root for AI integration:
+
+```env
+AI_API_KEY=your_api_key_here
+```
+
+---
+
+## 📁 Project Structure
 
 ```
 library/
-├── main.py                # Entry point with test queries
-├── assistant.py           # Main assistant logic (Gemini API integration)
-├── tools.py               # Function tools (search_book, check_availability, etc.)
-├── database.py            # Book database and library data
-├── models.py              # Data models (UserContext)
-├── requirements.txt       # Python dependencies
-├── .env                   # Environment variables (API keys)
-└── README.md             # This file
+├── main.py              # 🎯 Entry point - run test queries here
+├── assistant.py         # 🧠 Core assistant logic and AI integration
+├── tools.py             # 🔧 Utility functions (search, availability)
+├── database.py          # 💾 Pre-populated book database
+├── models.py            # 📋 Data models (UserContext, Book, etc.)
+├── requirements.txt     # 📦 Python dependencies
+├── .env                 # 🔐 Environment variables (optional)
+└── README.md            # 📖 This file
 ```
 
-## Usage
+---
 
-### Run the Library Assistant
+## 💡 Usage
+
+### Run the Assistant
 
 ```bash
 python main.py
 ```
 
-### Available Commands
+### Example Queries
 
-The assistant can help with:
-- **Search for books**: "Is 'The Great Gatsby' available?"
-- **Check availability**: "Tell me about 'To Kill a Mockingbird'"
-- **Library timings**: "What are the library hours?"
-- **Membership queries**: "How do I become a member?"
+| Query | Expected Response |
+|-------|-------------------|
+| "Is 'The Great Gatsby' available?" | Book availability status |
+| "Tell me about '1984'" | Book details and availability |
+| "What are the library hours?" | Operating hours |
+| "How do I become a member?" | Membership information |
 
-## Dependencies
+---
 
-- `google-generativeai` - Google Gemini API client
-- `python-dotenv` - Environment variable management
-- `pydantic` - Data validation and settings management
+## 📚 Sample Book Database
 
-## Book Database
-
-The application includes a pre-populated book database with the following titles:
-
-| Book Title | Author | Available Copies |
-|------------|--------|------------------|
+| Title | Author | Available |
+|-------|--------|-----------|
 | The Great Gatsby | F. Scott Fitzgerald | 3 |
 | To Kill a Mockingbird | Harper Lee | 2 |
 | 1984 | George Orwell | 5 |
@@ -88,31 +97,116 @@ The application includes a pre-populated book database with the following titles
 | The Hobbit | J.R.R. Tolkien | 3 |
 | Fahrenheit 451 | Ray Bradbury | 4 |
 
-## Library Timings
+---
 
-- **Monday to Friday**: 9 AM to 8 PM
-- **Saturday**: 10 AM to 6 PM
-- **Sunday**: Closed
+## 🕒 Library Timings
 
-## How It Works
+| Day | Hours |
+|-----|-------|
+| Monday - Friday | 9:00 AM - 8:00 PM |
+| Saturday | 10:00 AM - 6:00 PM |
+| Sunday | Closed |
 
-1. **User Input**: The user provides a query about library services
-2. **Query Analysis**: The system checks if the query is library-related
-3. **Tool Selection**: Appropriate tools are selected based on the query
-4. **Response Generation**: 
-   - With API key: Uses Gemini AI for intelligent responses
-   - Without API key: Falls back to rule-based responses
-5. **Output**: Returns helpful information to the user
+---
 
-## Membership
+## ⚙️ How It Works
 
-- **Guest Users**: Can search for books and get library timings
-- **Registered Members**: Can access additional features like availability checks
+```
+┌─────────────┐
+│ User Query  │
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│ Query       │
+│ Analysis    │
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│ Tool        │
+│ Selection   │
+└──────┬──────┘
+       ▼
+┌─────────────┐    ┌─────────────┐
+│ AI Response │    │ Fallback    │
+│ (Primary)   │    │ (Backup)    │
+└──────┬──────┘    └──────┬──────┘
+       │                  │
+       └────────┬─────────┘
+                ▼
+        ┌─────────────┐
+        │ User Output │
+        └─────────────┘
+```
 
-## License
+### Step-by-Step Flow
 
-MIT License
+1. **User Input** - Query about library services
+2. **Query Analysis** - System determines intent
+3. **Tool Selection** - Routes to appropriate handler
+4. **Response Generation** - AI or rule-based response
+5. **Output** - Delivers helpful information
 
-## Contributing
+---
 
-Feel free to submit issues and enhancement requests!
+## 👥 Membership Tiers
+
+### Guest Users
+- ✅ Search for books
+- ✅ View library timings
+- ❌ Check availability
+
+### Registered Members
+- ✅ All guest features
+- ✅ Real-time availability checks
+- ✅ Reserve books (coming soon)
+
+---
+
+## 📦 Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `python-dotenv` | Environment variable management |
+| `pydantic` | Data validation and models |
+
+---
+
+## 🛠️ Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| AI responses not working | Check `.env` file and API key |
+| Import errors | Run `pip install -r requirements.txt` |
+| Database empty | Restart application to load sample data |
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📧 Contact
+
+For questions or support, please open an issue in the repository.
+
+---
+
+<div align="center">
+
+**Made with ❤️ for library enthusiasts**
+
+</div>
